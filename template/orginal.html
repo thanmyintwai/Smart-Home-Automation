@@ -1,0 +1,68 @@
+
+<div class='container' ng-controller="myController as myC">
+    <div class="row">
+    <!--<div class="page-header">
+        <br/>
+        <h2>Chaper 1<small>Hello World</small></h2>
+    </div>
+    <div class="jumbotron">
+        <h1 ng-show="myC.showMe">Hello <span ng-bind="myC.name"></span></h1>
+        <label for="name">Enter Your Name</label>
+        <input type="text" class="form-control input-lg" ng-model="myC.name"> <br />
+        <button ng-click="myC.showTime()">{{myC.showText}}</button>
+    </div>
+-->
+    <div class="page-header">
+        <br />
+        <h2>Countries <small>Filters</small></h2>
+    </div>
+    <div>
+
+        <label for="name">Search</label>
+        <input type="text" class="form-control input-sm" ng-model="myC.myFilters"> <br />
+
+        <div class="well">
+
+        <table class = "table table-hover table-responsive">
+            <thead>
+
+            <th>Countries <button type="button" class="btn btn-link" ng-click="myC.ord = 'country'; myC.reverse=!myC.reverse">
+                          <span class="glyphicon glyphicon-refresh"></span>
+                          </button></th>
+
+            <!--<th><a href= "" ng-click="myC.ord = 'country'">Countries <span class="glyphicon glyphicon-refresh"></span></a></th>-->
+            <th>Flag</th>
+
+            <th>Population <button type="button" class="btn btn-link" ng-click="myC.ord ='population | number'; myC.reverse=!myC.reverse">
+                <span class="glyphicon glyphicon-refresh"></span>
+                </button></th>
+            <!--<th><a href="" ng-click="myC.ord = 'population | number'">Population <span class="glyphicon glyphicon-refresh"></span></a></th>-->
+
+            </thead>
+            <tbody>
+            <tr ng-repeat="name in myC.myData | filter: myC.myFilters | orderBy:myC.ord:myC.reverse">
+
+                <td>
+                    {{name.country}}
+                </td>
+                <td>
+                    <a href="#!/country/{{myC.myData.indexOf(name)}}" target="_blank">
+                    <!--<a href="#!/country/{{$index}}" target="_blank">-->
+                    <img ng-src={{name.flag}} width="100">
+                    </a>
+                </td>
+                <td>
+                    <!--{{name | json |truncate:24}}-->
+                    {{name.population | number}}
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+
+        </div>
+
+    </div>
+</div>
+</div>
+

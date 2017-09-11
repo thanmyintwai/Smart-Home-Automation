@@ -1,0 +1,27 @@
+
+<div class='container' ng-controller="MyUpload">
+    <div class="row">
+
+        <div class="page-header">
+            <br />
+            <h2>Countries <small>Filters</small></h2>
+        </div>
+
+        <h4>Upload on file select</h4>
+
+        <button ngf-select="uploadFiles($files)" multiple
+                accept="image/*">Select Files</button>
+        <br>
+        <br>Files:
+        <ul>
+            <li ng-repeat="f in files">
+                {{f.name}}
+            </li>
+        </ul>
+        <span class="progress" ng-show="progress >= 0">
+        <div ng-bind="progress + '%'"></div>
+    </span>
+        {{errorMsg}}
+
+    </div>
+</div>
