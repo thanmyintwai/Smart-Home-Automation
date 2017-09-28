@@ -2,7 +2,12 @@
 Be able to control electronic appliance from webpage
 
 <h2>Technologies and Languages</h2>
-<ol><li>Python</li><li>AngularJs</li><li>MQTT</li><li>Web Socket</li><li>Arduino</li>
-
+<ol>
+  <li>Python</li>
+  <li>AngularJs</li>
+  <li>MQTT mosquitto or any MQTT broker server</li>
+  <li>Web Socket agular-paho</li>
+  <li>Arduino</li>
+</ol>
 <h2>YouTube Video</h2>
 <p>https://youtu.be/qGMZEB0plO4</p>
