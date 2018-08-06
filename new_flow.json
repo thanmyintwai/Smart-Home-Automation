@@ -1,0 +1,5498 @@
+[
+    {
+        "id": "89fef9ac.2aa08",
+        "type": "tab",
+        "label": "Security",
+        "disabled": false,
+        "info": "# Your Security rules\n\nThis tab is for configuring the rules for venue security.\n\nYou can control how sensors and alarms interact.\n\n\n"
+    },
+    {
+        "id": "7ed01222.916aec",
+        "type": "tab",
+        "label": "Control Screen",
+        "disabled": false,
+        "info": "# Main screen\n\nThis tab defines the user interface on the touchscreen of the venue controller."
+    },
+    {
+        "id": "701516c3.3eef78",
+        "type": "tab",
+        "label": "Web Interface",
+        "disabled": false,
+        "info": "# Web Interface\n\nThis tab defines the presentation of the web interface, which staff use to interact with the system from their phones or computers."
+    },
+    {
+        "id": "64802fcc.00f068",
+        "type": "tab",
+        "label": "Devices",
+        "disabled": false,
+        "info": "# Devices\n\nThis tab defines the devices (such as sensors, alarms, cameras and screens) that are connected to the system."
+    },
+    {
+        "id": "d10944cb.7ff44",
+        "type": "tab",
+        "label": "Security Internals",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "44b91e97.1e0a1",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "broker",
+        "port": "1883",
+        "clientid": "node-red",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "/nodered/online",
+        "birthQos": "0",
+        "birthRetain": "true",
+        "birthPayload": "1",
+        "willTopic": "/nodered/online",
+        "willQos": "0",
+        "willRetain": "true",
+        "willPayload": "0"
+    },
+    {
+        "id": "70611d53.b9efcc",
+        "type": "ui_group",
+        "z": "",
+        "name": "MasterControl",
+        "tab": "a50da6d1.169d2",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a50da6d1.169d2",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Alarm",
+        "icon": "dashboard"
+    },
+    {
+        "id": "322b73e4.01aeec",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "bda08724.a6f0c",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    },
+    {
+        "id": "fde2e3a7.d19ff",
+        "type": "pushover-keys",
+        "z": "",
+        "name": "Staff Group"
+    },
+    {
+        "id": "382792ac.4641ce",
+        "type": "pushover-keys",
+        "z": "",
+        "name": "Wai@accelerando.com.au"
+    },
+    {
+        "id": "481160e2.a1ed1",
+        "type": "ui_group",
+        "z": "",
+        "name": "Authenticate",
+        "tab": "a50da6d1.169d2",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f141ba20.2759a8",
+        "type": "ui_group",
+        "z": "",
+        "name": "ReAuthenticate",
+        "tab": "a50da6d1.169d2",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "4d76bf57.fdb76",
+        "type": "ui_group",
+        "z": "",
+        "name": "Authenticate",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d6946509.74063",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    },
+    {
+        "id": "b889ac66.100608",
+        "type": "serial in",
+        "z": "64802fcc.00f068",
+        "name": "433MHz receiver",
+        "serial": "bda08724.a6f0c",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2240d855.e33a58",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "Lookup radio_inputs",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 400,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93c0d942.685a3",
+        "type": "mqtt out",
+        "z": "64802fcc.00f068",
+        "name": "Publish sensor event",
+        "topic": "",
+        "qos": "",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 680,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "95df3505.05442",
+        "type": "mqtt in",
+        "z": "64802fcc.00f068",
+        "name": "Subscribe to device control",
+        "topic": "/device/+/on",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5cea7a6.ef0fc84",
+        "type": "serial out",
+        "z": "64802fcc.00f068",
+        "name": "433MHz transmitter",
+        "serial": "bda08724.a6f0c",
+        "x": 680,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f64e03f8.2bd208",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "Lookup radio_outputs",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 400,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cf04b2d.1144cc",
+        "type": "inject",
+        "z": "64802fcc.00f068",
+        "name": "At startup",
+        "topic": "",
+        "payload": "/opt/accelerando/etc/radio_inputs.json",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 93.33331298828125,
+        "y": 81.6666488647461,
+        "wires": [
+            [
+                "4438bc96.8cad44",
+                "a3bcb4a0.49bc4"
+            ]
+        ]
+    },
+    {
+        "id": "3a72e6de.f3969a",
+        "type": "file in",
+        "z": "64802fcc.00f068",
+        "name": "Read file",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 573.3333129882812,
+        "y": 81.6666488647461,
+        "wires": [
+            [
+                "c3ad1b30.09e03"
+            ]
+        ]
+    },
+    {
+        "id": "c3ad1b30.09e03",
+        "type": "json",
+        "z": "64802fcc.00f068",
+        "name": "Parse JSON",
+        "pretty": false,
+        "x": 723.3333129882812,
+        "y": 81.6666488647461,
+        "wires": [
+            [
+                "70a2f4a2.41ef2c"
+            ]
+        ]
+    },
+    {
+        "id": "4438bc96.8cad44",
+        "type": "change",
+        "z": "64802fcc.00f068",
+        "name": "filename radio_inputs.json",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "/data/test.json",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 363.33331298828125,
+        "y": 81.6666488647461,
+        "wires": [
+            [
+                "3a72e6de.f3969a"
+            ]
+        ]
+    },
+    {
+        "id": "70a2f4a2.41ef2c",
+        "type": "globalGetSet",
+        "z": "64802fcc.00f068",
+        "name": "Set global radio_inputs",
+        "topic": "",
+        "context": "msg",
+        "variable": "payload",
+        "outContext": "global",
+        "outVar": "radio_inputs",
+        "x": 923.3333129882812,
+        "y": 81.6666488647461,
+        "wires": [
+            [
+                "4a73d029.8b14f"
+            ]
+        ]
+    },
+    {
+        "id": "43b20a66.ce5aac",
+        "type": "file in",
+        "z": "64802fcc.00f068",
+        "name": "Read file",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "x": 573.3333129882812,
+        "y": 141.6666488647461,
+        "wires": [
+            [
+                "6463d1e.f2b02b"
+            ]
+        ]
+    },
+    {
+        "id": "6463d1e.f2b02b",
+        "type": "json",
+        "z": "64802fcc.00f068",
+        "name": "Parse JSON",
+        "pretty": false,
+        "x": 723.3333129882812,
+        "y": 141.6666488647461,
+        "wires": [
+            [
+                "c41ed79.20257a8"
+            ]
+        ]
+    },
+    {
+        "id": "a3bcb4a0.49bc4",
+        "type": "change",
+        "z": "64802fcc.00f068",
+        "name": "filename radio_outputs.josn",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "radio_outputs.json",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 373.33331298828125,
+        "y": 141.6666488647461,
+        "wires": [
+            [
+                "43b20a66.ce5aac"
+            ]
+        ]
+    },
+    {
+        "id": "c41ed79.20257a8",
+        "type": "globalGetSet",
+        "z": "64802fcc.00f068",
+        "name": "Set global radio_outputs",
+        "topic": "",
+        "context": "msg",
+        "variable": "payload",
+        "outContext": "global",
+        "outVar": "radio_outputs",
+        "x": 923.3333129882812,
+        "y": 141.6666488647461,
+        "wires": [
+            [
+                "7ea50bef.048f34"
+            ]
+        ]
+    },
+    {
+        "id": "8cf12c44.5d0378",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 01",
+        "topic": "/alarm/sensor/motion/01",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "3d363faa.e7ffc8",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 02",
+        "topic": "/alarm/sensor/motion/02",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "78939203.295064",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 03",
+        "topic": "/alarm/sensor/motion/03",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "1155454a.619d4b",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 04",
+        "topic": "/alarm/sensor/motion/04",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "980d2f44.a46ee8",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 05",
+        "topic": "/alarm/sensor/motion/05",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "1bf2b617.c924da",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 06",
+        "topic": "/alarm/sensor/motion/06",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "613e1e9d.d1631",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 07",
+        "topic": "/alarm/sensor/motion/07",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "77e1d656.b40038",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Motion Sensor 08",
+        "topic": "/alarm/sensor/motion/08",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "76ab82a7.b65b14"
+            ]
+        ]
+    },
+    {
+        "id": "cd06488.82bd1b8",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Door Sensor 01",
+        "topic": "/alarm/sensor/door/01",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "1058b3e0.084d1c"
+            ]
+        ]
+    },
+    {
+        "id": "bb091fb4.07dff8",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Door Sensor 02",
+        "topic": "/alarm/sensor/door/02",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 140,
+        "y": 540,
+        "wires": [
+            [
+                "1058b3e0.084d1c"
+            ]
+        ]
+    },
+    {
+        "id": "6f7d6fef.6c10c",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Door Sensor 03",
+        "topic": "/alarm/sensor/door/03",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 140,
+        "y": 580,
+        "wires": [
+            [
+                "1058b3e0.084d1c"
+            ]
+        ]
+    },
+    {
+        "id": "8e5bcbe8.a31dd",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Door Sensor 04",
+        "topic": "/alarm/sensor/door/04",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 140,
+        "y": 620,
+        "wires": [
+            [
+                "1058b3e0.084d1c"
+            ]
+        ]
+    },
+    {
+        "id": "76ab82a7.b65b14",
+        "type": "link out",
+        "z": "89fef9ac.2aa08",
+        "name": "Any Motion Sensor",
+        "links": [
+            "3753ee6a.d928ca"
+        ],
+        "x": 295,
+        "y": 100,
+        "wires": [],
+        "inputLabels": [
+            "Any Sensor"
+        ]
+    },
+    {
+        "id": "1058b3e0.084d1c",
+        "type": "link out",
+        "z": "89fef9ac.2aa08",
+        "name": "Any Door Sensor",
+        "links": [
+            "3753ee6a.d928ca"
+        ],
+        "x": 275,
+        "y": 500,
+        "wires": [],
+        "inputLabels": [
+            "Any Sensor"
+        ]
+    },
+    {
+        "id": "3753ee6a.d928ca",
+        "type": "link in",
+        "z": "89fef9ac.2aa08",
+        "name": "Any sensor",
+        "links": [
+            "1058b3e0.084d1c",
+            "76ab82a7.b65b14",
+            "fa160e71.f1cde8",
+            "16a68f9c.ae5ba8"
+        ],
+        "x": 338.3333740234375,
+        "y": 39.99999237060547,
+        "wires": [
+            [
+                "28bd7c9a.ae9774",
+                "204c003.b49608"
+            ]
+        ]
+    },
+    {
+        "id": "f5b2bb22.31aaa",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "Siren Status- On",
+        "topic": "/alarm/siren/on",
+        "qos": "",
+        "retain": "false",
+        "broker": "44b91e97.1e0a1",
+        "x": 715.0000610351562,
+        "y": 434.9999694824219,
+        "wires": []
+    },
+    {
+        "id": "929dd2b5.3105e8",
+        "type": "delay",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 857.33349609375,
+        "y": 378.23809814453125,
+        "wires": [
+            [
+                "ad6e4248.7e2078"
+            ]
+        ]
+    },
+    {
+        "id": "4dd6a414.65e80c",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "Siren Status - Off",
+        "topic": "/alarm/siren/off",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 1292.4287109375,
+        "y": 453.7618713378906,
+        "wires": []
+    },
+    {
+        "id": "eebed38d.50c2f",
+        "type": "link in",
+        "z": "89fef9ac.2aa08",
+        "name": "Disarm Event",
+        "links": [
+            "1d5a1f66.9851d9",
+            "65fbcd9c.ba0cd4",
+            "4679d149.e57988"
+        ],
+        "x": 902,
+        "y": 662,
+        "wires": [
+            [
+                "4dd6a414.65e80c",
+                "63df8e7a.9bf24"
+            ]
+        ]
+    },
+    {
+        "id": "1b87b648.91c542",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "Trigger Warning",
+        "topic": "/alarm/warning",
+        "qos": "",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 921.6663818359375,
+        "y": 78.33332061767578,
+        "wires": []
+    },
+    {
+        "id": "2854c4e0.e99924",
+        "type": "delay",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 620,
+        "y": 220,
+        "wires": [
+            [
+                "d51eabce.f7a668"
+            ]
+        ]
+    },
+    {
+        "id": "f2173262.3f5cd",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "Trigger Alert",
+        "topic": "/alarm/alert",
+        "qos": "",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 1286.6666259765625,
+        "y": 206.66665649414062,
+        "wires": []
+    },
+    {
+        "id": "d51eabce.f7a668",
+        "type": "switch",
+        "z": "89fef9ac.2aa08",
+        "name": "Armed?",
+        "property": "alarm_armed",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 220,
+        "wires": [
+            [
+                "253ec2bf.b2540e",
+                "ccdce447.b32228"
+            ]
+        ]
+    },
+    {
+        "id": "28bd7c9a.ae9774",
+        "type": "switch",
+        "z": "89fef9ac.2aa08",
+        "name": "Armed?",
+        "property": "alarm_armed",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 506,
+        "y": 79,
+        "wires": [
+            [
+                "ebab4824.31b6e"
+            ]
+        ]
+    },
+    {
+        "id": "f9633feb.de8ac",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Alert Triggered",
+        "topic": "/alarm/alert",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 410,
+        "y": 406.6665954589844,
+        "wires": [
+            [
+                "f5b2bb22.31aaa",
+                "929dd2b5.3105e8",
+                "82678f72.ca3b2"
+            ]
+        ]
+    },
+    {
+        "id": "4c62facc.f447a4",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "Activate Cameras",
+        "topic": "/alarm/cameras/record/on",
+        "qos": "2",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 650,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9fb6be48.84c868",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Warning Triggered",
+        "topic": "/alarm/warning",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "4c62facc.f447a4",
+                "2854c4e0.e99924",
+                "e215d81e.60c7",
+                "755757ce.6da3"
+            ]
+        ]
+    },
+    {
+        "id": "ebab4824.31b6e",
+        "type": "switch",
+        "z": "89fef9ac.2aa08",
+        "name": "Not warning?",
+        "property": "alarm_warning",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 691.6665649414062,
+        "y": 81.6666488647461,
+        "wires": [
+            [
+                "1b87b648.91c542",
+                "ad5e6435.26c598"
+            ]
+        ]
+    },
+    {
+        "id": "253ec2bf.b2540e",
+        "type": "switch",
+        "z": "89fef9ac.2aa08",
+        "name": "Not alert?",
+        "property": "alarm_alert",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 1035,
+        "y": 211.66665649414062,
+        "wires": [
+            [
+                "f2173262.3f5cd",
+                "bd69b9b0.7753f8"
+            ]
+        ]
+    },
+    {
+        "id": "4a73d029.8b14f",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "radio inputs",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 1133.3333129882812,
+        "y": 81.6666488647461,
+        "wires": []
+    },
+    {
+        "id": "7ea50bef.048f34",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "radio outputs",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 1133.3333129882812,
+        "y": 141.6666488647461,
+        "wires": []
+    },
+    {
+        "id": "52b9622a.4cea7c",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "Sensor Triggered",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "payload",
+        "x": 690,
+        "y": 147.33334350585938,
+        "wires": []
+    },
+    {
+        "id": "e215d81e.60c7",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "Warning Triggered",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "payload",
+        "x": 660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "82678f72.ca3b2",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "Alert Triggered",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "payload",
+        "x": 530,
+        "y": 609.9998779296875,
+        "wires": []
+    },
+    {
+        "id": "5a2cbe43.8b98",
+        "type": "mqtt in",
+        "z": "d10944cb.7ff44",
+        "name": "Subscribe /alarm/armed",
+        "topic": "/alarm/armed",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "456b93d8.77249c",
+                "814cbfe7.02115",
+                "5806fce7.533cbc"
+            ]
+        ]
+    },
+    {
+        "id": "456b93d8.77249c",
+        "type": "globalGetSet",
+        "z": "d10944cb.7ff44",
+        "name": "Set global alarm_armed",
+        "topic": "",
+        "context": "msg",
+        "variable": "payload",
+        "outContext": "global",
+        "outVar": "alarm_armed",
+        "x": 450,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "814cbfe7.02115",
+        "type": "switch",
+        "z": "d10944cb.7ff44",
+        "name": "Alarm Enable/Disable Event (1 or 0) ",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "e1fbbe1.05eecc"
+            ],
+            [
+                "65fbcd9c.ba0cd4",
+                "7ef50673.713ba"
+            ]
+        ]
+    },
+    {
+        "id": "e1fbbe1.05eecc",
+        "type": "link out",
+        "z": "d10944cb.7ff44",
+        "name": "Arm Event",
+        "links": [
+            "9f5468c.2945a18"
+        ],
+        "x": 716.4285888671875,
+        "y": 338.8094787597656,
+        "wires": []
+    },
+    {
+        "id": "65fbcd9c.ba0cd4",
+        "type": "link out",
+        "z": "d10944cb.7ff44",
+        "name": "Disarm Event",
+        "links": [
+            "eebed38d.50c2f",
+            "d0c5b11d.9a81b8",
+            "86518d6e.8d1328"
+        ],
+        "x": 720.238037109375,
+        "y": 443.5713806152344,
+        "wires": []
+    },
+    {
+        "id": "7d4d2e3a.75dba8",
+        "type": "globalGetSet",
+        "z": "d10944cb.7ff44",
+        "name": "var alarm_warning",
+        "topic": "",
+        "context": "msg",
+        "variable": "payload",
+        "outContext": "global",
+        "outVar": "alarm_warning",
+        "x": 999.9996337890625,
+        "y": 474.9999694824219,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd401dd9.f8b5b",
+        "type": "globalGetSet",
+        "z": "d10944cb.7ff44",
+        "name": "var alarm_alert",
+        "topic": "",
+        "context": "msg",
+        "variable": "payload",
+        "outContext": "global",
+        "outVar": "alarm_alert",
+        "x": 995.9521484375,
+        "y": 573.8093872070312,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ef50673.713ba",
+        "type": "change",
+        "z": "d10944cb.7ff44",
+        "name": "Clear",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 717.142822265625,
+        "y": 510.71429443359375,
+        "wires": [
+            [
+                "7d4d2e3a.75dba8",
+                "dd401dd9.f8b5b"
+            ]
+        ]
+    },
+    {
+        "id": "5806fce7.533cbc",
+        "type": "debug",
+        "z": "d10944cb.7ff44",
+        "name": "Alarm Arm Status",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 478.33331298828125,
+        "y": 241.66665649414062,
+        "wires": []
+    },
+    {
+        "id": "58cb62.94550ca",
+        "type": "globalGetSet",
+        "z": "d10944cb.7ff44",
+        "name": "var alarm_warning",
+        "topic": "",
+        "context": "msg",
+        "variable": "payload",
+        "outContext": "global",
+        "outVar": "alarm_warning",
+        "x": 550,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d003f01.146748",
+        "type": "change",
+        "z": "d10944cb.7ff44",
+        "name": "Set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [
+                "58cb62.94550ca"
+            ]
+        ]
+    },
+    {
+        "id": "86012e92.cef738",
+        "type": "globalGetSet",
+        "z": "d10944cb.7ff44",
+        "name": "var alarm_alert",
+        "topic": "",
+        "context": "msg",
+        "variable": "payload",
+        "outContext": "global",
+        "outVar": "alarm_alert",
+        "x": 548.3333129882812,
+        "y": 656.6666259765625,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14c9f2c0.d407ed",
+        "type": "change",
+        "z": "d10944cb.7ff44",
+        "name": "Set",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 660,
+        "wires": [
+            [
+                "86012e92.cef738"
+            ]
+        ]
+    },
+    {
+        "id": "c37c48d9.cb037",
+        "type": "mqtt in",
+        "z": "d10944cb.7ff44",
+        "name": "Warning Triggered",
+        "topic": "/alarm/warning",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "4d003f01.146748"
+            ]
+        ]
+    },
+    {
+        "id": "2c649a37.9ae906",
+        "type": "mqtt in",
+        "z": "d10944cb.7ff44",
+        "name": "Alert Triggered",
+        "topic": "/alarm/alert",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "14c9f2c0.d407ed"
+            ]
+        ]
+    },
+    {
+        "id": "4c33e5ab.47828c",
+        "type": "inject",
+        "z": "d10944cb.7ff44",
+        "name": "Test Arm",
+        "topic": "1",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 123.33334350585938,
+        "y": 34.99999237060547,
+        "wires": [
+            [
+                "2028275a.d7d198"
+            ]
+        ]
+    },
+    {
+        "id": "c64a1fd7.66a52",
+        "type": "inject",
+        "z": "d10944cb.7ff44",
+        "name": "Test Disarm",
+        "topic": "0",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 126.66665649414062,
+        "y": 106.6666488647461,
+        "wires": [
+            [
+                "2028275a.d7d198"
+            ]
+        ]
+    },
+    {
+        "id": "2028275a.d7d198",
+        "type": "mqtt out",
+        "z": "d10944cb.7ff44",
+        "name": "Publish /alarm/armed",
+        "topic": "/alarm/armed",
+        "qos": "",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 640.3809814453125,
+        "y": 49.666664123535156,
+        "wires": []
+    },
+    {
+        "id": "55bc8d73.53602c",
+        "type": "inject",
+        "z": "d10944cb.7ff44",
+        "name": "Test Motion",
+        "topic": "",
+        "payload": "test",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 118.33331298828125,
+        "y": 171.66665649414062,
+        "wires": [
+            [
+                "fa160e71.f1cde8"
+            ]
+        ]
+    },
+    {
+        "id": "fa160e71.f1cde8",
+        "type": "link out",
+        "z": "d10944cb.7ff44",
+        "name": "Test Motion Sensor",
+        "links": [
+            "3753ee6a.d928ca"
+        ],
+        "x": 275,
+        "y": 140,
+        "wires": [],
+        "inputLabels": [
+            "Any Sensor"
+        ]
+    },
+    {
+        "id": "47c1b307.713d8c",
+        "type": "inject",
+        "z": "d10944cb.7ff44",
+        "name": "Test Door",
+        "topic": "",
+        "payload": "test",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 110.23809814453125,
+        "y": 242.38095092773438,
+        "wires": [
+            [
+                "16a68f9c.ae5ba8"
+            ]
+        ]
+    },
+    {
+        "id": "16a68f9c.ae5ba8",
+        "type": "link out",
+        "z": "d10944cb.7ff44",
+        "name": "Test Door Sensor",
+        "links": [
+            "3753ee6a.d928ca"
+        ],
+        "x": 275,
+        "y": 200,
+        "wires": [],
+        "inputLabels": [
+            "Any Sensor"
+        ]
+    },
+    {
+        "id": "25c2b19f.4d8a1e",
+        "type": "mqtt in",
+        "z": "d10944cb.7ff44",
+        "name": "Camera Record Status",
+        "topic": "/alarm/cameras/record/#",
+        "qos": "0",
+        "broker": "44b91e97.1e0a1",
+        "x": 140,
+        "y": 740,
+        "wires": [
+            [
+                "9d478b60.8e06d"
+            ]
+        ]
+    },
+    {
+        "id": "9d478b60.8e06d",
+        "type": "debug",
+        "z": "d10944cb.7ff44",
+        "name": "Alarm Camera Status",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 410,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7146698e.e8805",
+        "type": "mqtt in",
+        "z": "d10944cb.7ff44",
+        "name": "Siren Status",
+        "topic": "/alarm/siren/#",
+        "qos": "0",
+        "broker": "44b91e97.1e0a1",
+        "x": 110,
+        "y": 820,
+        "wires": [
+            [
+                "6add5170.4e52c8"
+            ]
+        ]
+    },
+    {
+        "id": "6add5170.4e52c8",
+        "type": "debug",
+        "z": "d10944cb.7ff44",
+        "name": "Alarm Siren Status",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 400,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "ccdce447.b32228",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 960.16650390625,
+        "y": 140.33335876464844,
+        "wires": []
+    },
+    {
+        "id": "bd69b9b0.7753f8",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1236.8333740234375,
+        "y": 119.66666412353516,
+        "wires": []
+    },
+    {
+        "id": "9138b7d1.4c45d8",
+        "type": "serial in",
+        "z": "64802fcc.00f068",
+        "name": "Reciever_Board",
+        "serial": "bda08724.a6f0c",
+        "x": 115.71428298950195,
+        "y": 584.2856693267822,
+        "wires": [
+            [
+                "3dd167f9.403588",
+                "7e19f4d4.98f92c"
+            ]
+        ]
+    },
+    {
+        "id": "3dd167f9.403588",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "ID_GETTER",
+        "func": "let raw = msg.payload\n\nlet ans = null\n\nif(raw.includes(\"Binary\")){\n    \n    var res = raw.split(\" \")\n    res.forEach(function(element){\n        if(element.length == 24){\n            ans = element.substring(0, 20)\n        }\n    })\n    \n    msg.payload = ans\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 321.4285583496094,
+        "y": 629.2857055664062,
+        "wires": [
+            [
+                "6de169d9.d04ef8",
+                "f2bb289a.0e5fa"
+            ]
+        ]
+    },
+    {
+        "id": "6de169d9.d04ef8",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "Get associated topic from config file",
+        "func": "var my_id = msg.payload\nvar g_id = global.get(\"radio_inputs\")\n\ntry{\n    var result = g_id[my_id]\n    //var message =  result + \" detected\"\n    var topic = result\n    //msg.payload = message\n    msg.payload = topic\n    return msg\n    \n}\ncatch(error){\n    msg.payload = \"No\"\n    return msg\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 528.5,
+        "y": 458,
+        "wires": [
+            [
+                "19c0aa1d.b14836"
+            ]
+        ]
+    },
+    {
+        "id": "19c0aa1d.b14836",
+        "type": "switch",
+        "z": "64802fcc.00f068",
+        "name": "Already Registered? - Yes/No",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "No",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 775.5,
+        "y": 544,
+        "wires": [
+            [
+                "b57b8311.d887f"
+            ],
+            [
+                "dca969b5.6b48a"
+            ]
+        ]
+    },
+    {
+        "id": "fce67398.f4ad5",
+        "type": "mqtt out",
+        "z": "64802fcc.00f068",
+        "name": "payload.topic",
+        "topic": "",
+        "qos": "2",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 1234.5,
+        "y": 449,
+        "wires": []
+    },
+    {
+        "id": "b57b8311.d887f",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "Yes - Send 1 to the topic",
+        "func": "let raw_topic = msg.payload\nmsg.payload = \"1\"\nmsg.topic = raw_topic\n\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 975.5,
+        "y": 455,
+        "wires": [
+            [
+                "fce67398.f4ad5"
+            ]
+        ]
+    },
+    {
+        "id": "dca969b5.6b48a",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "No - Send 0 to the topic",
+        "func": "let raw_topic = msg.payload\nmsg.payload = \"0\"\nmsg.topic = raw_topic\n\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 950,
+        "y": 643,
+        "wires": [
+            [
+                "a8a3255c.3e99d8"
+            ]
+        ]
+    },
+    {
+        "id": "a8a3255c.3e99d8",
+        "type": "mqtt out",
+        "z": "64802fcc.00f068",
+        "name": "payload.topic",
+        "topic": "",
+        "qos": "2",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 1234,
+        "y": 625,
+        "wires": []
+    },
+    {
+        "id": "f2bb289a.0e5fa",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 547.5,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "7e19f4d4.98f92c",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 247.5,
+        "y": 752,
+        "wires": []
+    },
+    {
+        "id": "b0cfd2cb.4aba28",
+        "type": "mqtt in",
+        "z": "64802fcc.00f068",
+        "name": "Siren On Channel",
+        "topic": "/alarm/siren/on",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 122.16665649414062,
+        "y": 913.333251953125,
+        "wires": [
+            [
+                "6d0ea430.6644dc"
+            ]
+        ]
+    },
+    {
+        "id": "c1a82523.b6cac8",
+        "type": "serial out",
+        "z": "64802fcc.00f068",
+        "name": "Transmitter_Board - Siren",
+        "serial": "bda08724.a6f0c",
+        "x": 1010.5955810546875,
+        "y": 948.9049072265625,
+        "wires": []
+    },
+    {
+        "id": "e906d286.d3a788",
+        "type": "mqtt in",
+        "z": "64802fcc.00f068",
+        "name": "Siren Off Channel",
+        "topic": "/alarm/siren/off",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 124.28573608398438,
+        "y": 1025.238037109375,
+        "wires": [
+            [
+                "e6ace6d8.577328"
+            ]
+        ]
+    },
+    {
+        "id": "40421e7b.4bf3c8",
+        "type": "debug",
+        "z": "d10944cb.7ff44",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1285.8330078125,
+        "y": 195.00003051757812,
+        "wires": []
+    },
+    {
+        "id": "ea490476.1717b8",
+        "type": "function",
+        "z": "d10944cb.7ff44",
+        "name": "test will remove later-Give me globals",
+        "func": "msg.payload = \"alarmed warning value is \" + global.get(\"alarm_warning\") + \" alarm alart value is \"+ global.get(\"alarm_alert\") +\" alarm armed value is \"+ global.get(\"alarm_armed\")\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1124.1666259765625,
+        "y": 62.50005340576172,
+        "wires": [
+            [
+                "40421e7b.4bf3c8"
+            ]
+        ]
+    },
+    {
+        "id": "4a30f36d.869a8c",
+        "type": "inject",
+        "z": "d10944cb.7ff44",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 1005.8331298828125,
+        "y": 205.83331298828125,
+        "wires": [
+            [
+                "ea490476.1717b8"
+            ]
+        ]
+    },
+    {
+        "id": "8bef9b0f.dc827",
+        "type": "comment",
+        "z": "d10944cb.7ff44",
+        "name": "&gt;1, whatever send",
+        "info": "",
+        "x": 402.4999694824219,
+        "y": 552.4999694824219,
+        "wires": []
+    },
+    {
+        "id": "15cd7730.e90fe1",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1230,
+        "y": 20.833274841308594,
+        "wires": []
+    },
+    {
+        "id": "114f2cfc.be1aa3",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "test will remove later",
+        "func": "msg.payload = \"global radio inputs value is \" + global.get(\"radio_inputs\")\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 858.3336181640625,
+        "y": 21.666648864746094,
+        "wires": [
+            [
+                "e11f5cc1.1d346"
+            ]
+        ]
+    },
+    {
+        "id": "427a197c.732ee8",
+        "type": "inject",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 609.9999389648438,
+        "y": 23.33325958251953,
+        "wires": [
+            [
+                "114f2cfc.be1aa3"
+            ]
+        ]
+    },
+    {
+        "id": "e11f5cc1.1d346",
+        "type": "json",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 1074.16650390625,
+        "y": 20,
+        "wires": [
+            [
+                "15cd7730.e90fe1"
+            ]
+        ]
+    },
+    {
+        "id": "ca3fabbc.5a2d38",
+        "type": "comment",
+        "z": "64802fcc.00f068",
+        "name": "activate this function later ",
+        "info": "",
+        "x": 947.5,
+        "y": 314.1666564941406,
+        "wires": []
+    },
+    {
+        "id": "7e2ddf6c.35f1d",
+        "type": "function",
+        "z": "89fef9ac.2aa08",
+        "name": "test will remove later",
+        "func": "msg.payload = \"warning :\" + global.get(\"alarm_warning\") + \" alart: \"+ global.get(\"alarm_alert\") +\" armed :\"+ global.get(\"alarm_armed\")\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 522.3812866210938,
+        "y": 765.8333740234375,
+        "wires": [
+            [
+                "c2b370fe.d5c458"
+            ]
+        ]
+    },
+    {
+        "id": "db72986c.8e56e8",
+        "type": "inject",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 392.8572692871094,
+        "y": 707.4998474121094,
+        "wires": [
+            [
+                "7e2ddf6c.35f1d"
+            ]
+        ]
+    },
+    {
+        "id": "7cafec3.3c61f14",
+        "type": "comment",
+        "z": "89fef9ac.2aa08",
+        "name": "kp go, G armed = 1",
+        "info": "",
+        "x": 550.833251953125,
+        "y": 25.833335876464844,
+        "wires": []
+    },
+    {
+        "id": "60faeae2.c3bdd4",
+        "type": "comment",
+        "z": "89fef9ac.2aa08",
+        "name": "kp go, if G warning = 0",
+        "info": "",
+        "x": 773.333251953125,
+        "y": 28.33332061767578,
+        "wires": []
+    },
+    {
+        "id": "a6943a0a.5ae598",
+        "type": "comment",
+        "z": "d10944cb.7ff44",
+        "name": "0 &amp; 1",
+        "info": "",
+        "x": 264.16668701171875,
+        "y": 65.83333587646484,
+        "wires": []
+    },
+    {
+        "id": "173bcd83.6c6602",
+        "type": "comment",
+        "z": "d10944cb.7ff44",
+        "name": "G armed = 0 or 1 ",
+        "info": "",
+        "x": 587.5000610351562,
+        "y": 292.5,
+        "wires": []
+    },
+    {
+        "id": "df4c6729.be7558",
+        "type": "comment",
+        "z": "d10944cb.7ff44",
+        "name": "if 1, link with screen",
+        "info": "",
+        "x": 828.333251953125,
+        "y": 293.33331298828125,
+        "wires": []
+    },
+    {
+        "id": "a2babb03.c1e9c",
+        "type": "comment",
+        "z": "d10944cb.7ff44",
+        "name": "if 0, all will be 0",
+        "info": "",
+        "x": 936.6666259765625,
+        "y": 518.3331909179688,
+        "wires": []
+    },
+    {
+        "id": "23a36597.b515ba",
+        "type": "comment",
+        "z": "d10944cb.7ff44",
+        "name": "if 0, siren off (topic) ",
+        "info": "",
+        "x": 841.6666259765625,
+        "y": 401.6666564941406,
+        "wires": []
+    },
+    {
+        "id": "52d2ae30.5b5588",
+        "type": "comment",
+        "z": "89fef9ac.2aa08",
+        "name": "&gt;1, whatever send",
+        "info": "",
+        "x": 1030,
+        "y": 26.666664123535156,
+        "wires": []
+    },
+    {
+        "id": "51055167.3bd72",
+        "type": "comment",
+        "z": "89fef9ac.2aa08",
+        "name": "kp go, G armed = 1",
+        "info": "",
+        "x": 866.6666259765625,
+        "y": 266.66668701171875,
+        "wires": []
+    },
+    {
+        "id": "4ea05477.334eac",
+        "type": "comment",
+        "z": "89fef9ac.2aa08",
+        "name": "kp go, G alart = 0",
+        "info": "",
+        "x": 1176.6666259765625,
+        "y": 285,
+        "wires": []
+    },
+    {
+        "id": "6d0ea430.6644dc",
+        "type": "change",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 477.5,
+        "y": 905.833251953125,
+        "wires": [
+            [
+                "c1a82523.b6cac8"
+            ]
+        ]
+    },
+    {
+        "id": "e6ace6d8.577328",
+        "type": "change",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 476.6666259765625,
+        "y": 1019.9999389648438,
+        "wires": [
+            [
+                "c1a82523.b6cac8"
+            ]
+        ]
+    },
+    {
+        "id": "ad6e4248.7e2078",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1052.5,
+        "y": 369.1666564941406,
+        "wires": [
+            [
+                "4dd6a414.65e80c",
+                "95b563cc.27aaa",
+                "a017a186.d000d",
+                "52a86ff.c612e1"
+            ]
+        ]
+    },
+    {
+        "id": "41f7b4ce.bd709c",
+        "type": "inject",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 420.8333740234375,
+        "y": 969.1665649414062,
+        "wires": [
+            [
+                "b205bfaf.8e0198"
+            ]
+        ]
+    },
+    {
+        "id": "8897e4e5.8b051",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "topic": "/alarm/sensor/motion/01",
+        "qos": "2",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 887.5001220703125,
+        "y": 983.3333740234375,
+        "wires": []
+    },
+    {
+        "id": "b205bfaf.8e0198",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640.8333740234375,
+        "y": 944.1666870117188,
+        "wires": [
+            [
+                "8897e4e5.8b051"
+            ]
+        ]
+    },
+    {
+        "id": "204c003.b49608",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "here1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "here 1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 425.83331298828125,
+        "y": 140.83331298828125,
+        "wires": [
+            [
+                "52b9622a.4cea7c"
+            ]
+        ]
+    },
+    {
+        "id": "ad5e6435.26c598",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "there 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "there 1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1102.5001220703125,
+        "y": 59.166648864746094,
+        "wires": [
+            [
+                "a04d7a72.b8eca8"
+            ]
+        ]
+    },
+    {
+        "id": "a04d7a72.b8eca8",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1325.833333333333,
+        "y": 49.99999999999999,
+        "wires": []
+    },
+    {
+        "id": "755757ce.6da3",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "here2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "here 2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 373.3333740234375,
+        "y": 306.6666564941406,
+        "wires": [
+            [
+                "3d3a435e.c1b99c"
+            ]
+        ]
+    },
+    {
+        "id": "3d3a435e.c1b99c",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "Sensor Triggered",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "payload",
+        "x": 412.5,
+        "y": 351.5000305175781,
+        "wires": []
+    },
+    {
+        "id": "95b563cc.27aaa",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "Clear Alarm Alert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm_alert",
+                "pt": "global",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1279.166748046875,
+        "y": 527.4998168945312,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a017a186.d000d",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "Clear Alarm Warning",
+        "rules": [
+            {
+                "t": "set",
+                "p": "alarm_warning",
+                "pt": "global",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1285.0001220703125,
+        "y": 581.6666870117188,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6713db3d.cbc324",
+        "type": "inject",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 426.666748046875,
+        "y": 901.66650390625,
+        "wires": [
+            [
+                "1af4e4e2.d5cd73"
+            ]
+        ]
+    },
+    {
+        "id": "e220f6b1.01afd8",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "topic": "/alarm/sensor/motion/02",
+        "qos": "2",
+        "retain": "true",
+        "broker": "44b91e97.1e0a1",
+        "x": 870,
+        "y": 879.16650390625,
+        "wires": []
+    },
+    {
+        "id": "1af4e4e2.d5cd73",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630.0000610351562,
+        "y": 849.9998779296875,
+        "wires": [
+            [
+                "e220f6b1.01afd8"
+            ]
+        ]
+    },
+    {
+        "id": "b25d741.0617588",
+        "type": "pushover api",
+        "z": "89fef9ac.2aa08",
+        "keys": "fde2e3a7.d19ff",
+        "title": "",
+        "name": "Pushover Alarm Alert",
+        "x": 563.3334350585938,
+        "y": 1073.3331298828125,
+        "wires": []
+    },
+    {
+        "id": "c415b521.89fc4",
+        "type": "inject",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 219.16665649414062,
+        "y": 1077.5,
+        "wires": [
+            [
+                "b25d741.0617588"
+            ]
+        ]
+    },
+    {
+        "id": "51bb2ff.4d8b8d",
+        "type": "http request",
+        "z": "701516c3.3eef78",
+        "name": "GET_INFO",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://192.168.65.120:8080/m4AxVNy1jqP2So7fEWyAXV4vjEXRVa/monitor/lmjK94FhND",
+        "tls": "",
+        "x": 292,
+        "y": 268.85711669921875,
+        "wires": [
+            [
+                "f3cf8e02.f30e6"
+            ]
+        ]
+    },
+    {
+        "id": "de29bf71.cd6c88",
+        "type": "debug",
+        "z": "701516c3.3eef78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 700.4286499023438,
+        "y": 307.1428527832031,
+        "wires": []
+    },
+    {
+        "id": "c5f4b98b.a69f6",
+        "type": "inject",
+        "z": "701516c3.3eef78",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 109.00003051757812,
+        "y": 313.0000305175781,
+        "wires": [
+            [
+                "51bb2ff.4d8b8d"
+            ]
+        ]
+    },
+    {
+        "id": "e338ead5.95389",
+        "type": "http request",
+        "z": "701516c3.3eef78",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "x": 259.2857142857143,
+        "y": 459.2857142857142,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f2a96722.a6656",
+        "type": "exec",
+        "z": "701516c3.3eef78",
+        "command": "ifconfig",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 269.5,
+        "y": 178.5,
+        "wires": [
+            [],
+            [
+                "13eb5e50.51448a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "13eb5e50.51448a",
+        "type": "debug",
+        "z": "701516c3.3eef78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 651.5,
+        "y": 144,
+        "wires": []
+    },
+    {
+        "id": "f0dfea31.ae92c8",
+        "type": "inject",
+        "z": "701516c3.3eef78",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 104.5,
+        "y": 179.5,
+        "wires": [
+            [
+                "f2a96722.a6656"
+            ]
+        ]
+    },
+    {
+        "id": "a5408c98.500628",
+        "type": "http request",
+        "z": "701516c3.3eef78",
+        "name": "Get_Monitors_Info",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://192.168.65.120:8080/m4AxVNy1jqP2So7fEWyAXV4vjEXRVa/monitor/lmjK94FhND",
+        "tls": "",
+        "x": 304.9999694824219,
+        "y": 398,
+        "wires": [
+            [
+                "7e918150.4d673"
+            ]
+        ]
+    },
+    {
+        "id": "7e918150.4d673",
+        "type": "debug",
+        "z": "701516c3.3eef78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 547.4286193847656,
+        "y": 399.2857360839844,
+        "wires": []
+    },
+    {
+        "id": "5026dd22.ba96bc",
+        "type": "template",
+        "z": "701516c3.3eef78",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "output": "str",
+        "x": 535.5,
+        "y": 494.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3cf8e02.f30e6",
+        "type": "function",
+        "z": "701516c3.3eef78",
+        "name": "GET_TRIGGER_URLS",
+        "func": "let raw = msg.payload\n\nvar urls = []\n\nraw.forEach(function(i) {\n    //var monitor_id = i.mid;\n    //var monitor_name = i.name\n    //var monitor_taken = i.snapshot\n    var tmp_url = 'http://192.168.65.120:8080/m4AxVNy1jqP2So7fEWyAXV4vjEXRVa/motion/'+i.ke+'/'+i.mid+'?data={\"plug\":'+i.name+',\"name\":'+i.name+',\"reason\":\"motion\",\"confidence\":197.4755859375}'\n    urls.push(tmp_url)\n    //console.log(tableName);\n});\n\nmsg.payload = urls\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 519.5,
+        "y": 228.5,
+        "wires": [
+            [
+                "de29bf71.cd6c88"
+            ]
+        ]
+    },
+    {
+        "id": "551440fd.3093f",
+        "type": "mqtt in",
+        "z": "64802fcc.00f068",
+        "name": "Camera_Trigger",
+        "topic": "/alarm/cameras/record/on",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 108.125,
+        "y": 1264.375,
+        "wires": [
+            [
+                "63f81195.595e48"
+            ]
+        ]
+    },
+    {
+        "id": "330f494f.258f66",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "GET_TRIGGER_URLS",
+        "func": "let raw = msg.payload\n\nvar urls = []\ntry{\n    raw.forEach(function(i) {\n    var tmp_url = 'http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/motion/'+i.ke+'/'+i.mid+'?data={\"plug\":'+'\"'+i.name+'\"'+',\"name\":'+'\"'+i.name+'\"'+',\"reason\":\"motion\",\"confidence\":197.4755859375}'\n    urls.push(tmp_url)\n    })\n}catch(error){\n    var tmp_url = 'http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/motion/'+raw.ke+'/'+raw.mid+'?data={\"plug\":'+'\"'+raw.name+'\"'+',\"name\":'+'\"'+raw.name+'\"'+',\"reason\":\"motion\",\"confidence\":197.4755859375}'\n    urls.push(tmp_url)\n}\n/*\n    raw.forEach(function(i) {\n    //var monitor_id = i.mid;\n    //var monitor_name = i.name\n    //var monitor_taken = i.snapshot\n    var tmp_url = 'http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/motion/'+i.ke+'/'+i.mid+'?data={\"plug\":'+'\"'+i.name+'\"'+',\"name\":'+'\"'+i.name+'\"'+',\"reason\":\"motion\",\"confidence\":197.4755859375}'\n    urls.push(tmp_url)\n    //console.log(tableName);\n})\n*/\n//msg.payload = urls\n//return msg\n\n//var msg1 = { payload:\"first out of output 1\" };\n//var msg2 = { payload:\"second out of output 1\" };\n//var msg3 = { payload:\"third out of output 1\" };\n//var msg4 = { payload:\"only message from output 2\" };\n//return [ [ msg1, msg2, msg3 ], msg4 ];\n\nvar result = []\n\nurls.forEach(function(i) {\n    var tmp = {payload: i}\n    result.push(tmp)\n})\nreturn [result]\n\n//messages = urls.map(u=>{ let m=msg; m.payload=u; return m});\n//return [ messages ];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 482.5,
+        "y": 1282.5,
+        "wires": [
+            [
+                "cbfb3268.594f8"
+            ]
+        ]
+    },
+    {
+        "id": "63f81195.595e48",
+        "type": "http request",
+        "z": "64802fcc.00f068",
+        "name": "GET_INFO",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/monitor/K7cYjTeHDq",
+        "tls": "",
+        "x": 333.75,
+        "y": 1194.1072082519531,
+        "wires": [
+            [
+                "330f494f.258f66"
+            ]
+        ]
+    },
+    {
+        "id": "fc5e656c.e1d73",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 714.6785888671875,
+        "y": 1093.642807006836,
+        "wires": []
+    },
+    {
+        "id": "7bd7fb06.eea9ac",
+        "type": "inject",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 106.875,
+        "y": 1179.375,
+        "wires": [
+            [
+                "63f81195.595e48"
+            ]
+        ]
+    },
+    {
+        "id": "f096f26d.63f0d",
+        "type": "http request",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 961.875,
+        "y": 1321.875,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "94373128.43fbd",
+        "type": "http request",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 618.5416259765625,
+        "y": 1861.4583740234375,
+        "wires": [
+            [
+                "f964dbfc.e8c7a"
+            ]
+        ]
+    },
+    {
+        "id": "ee94fdd1.e5bec",
+        "type": "inject",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 112.113037109375,
+        "y": 1832.8870239257812,
+        "wires": [
+            [
+                "273bdb2d.acc874"
+            ]
+        ]
+    },
+    {
+        "id": "f964dbfc.e8c7a",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 854.255859375,
+        "y": 1863.3333740234375,
+        "wires": []
+    },
+    {
+        "id": "273bdb2d.acc874",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "func": "//var msg1 = {payload:'https://192.168.65.120:8080/m4AxVNy1jqP2So7fEWyAXV4vjEXRVa/motion/lmjK94FhND/t006KlQ4OZ?data={\"plug\":\"FrontCamera\",\"name\":\"FrontCamera\",\"reason\":\"motion\",\"confidence\":197.4755859375}'}\n//var msg2 = {payload: 'https://192.168.65.120:8080/m4AxVNy1jqP2So7fEWyAXV4vjEXRVa/motion/lmjK94FhND/7AO0u2adgr?data={\"plug\":\"BackCamera\",\"name\":\"BackCamera\",\"reason\":\"motion\",\"confidence\":197.4755859375}'}\n\nmsg.url = 'http://192.168.65.159:8080/m4AxVNy1jqP2So7fEWyAXV4vjEXRVa/motion/lmjK94FhND/t006KlQ4OZ?data={\"plug\":\"FrontCamera\",\"name\":\"FrontCamera\",\"reason\":\"motion\",\"confidence\":197.4755859375}'\n\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 395.863037109375,
+        "y": 1872.3512573242188,
+        "wires": [
+            [
+                "94373128.43fbd"
+            ]
+        ]
+    },
+    {
+        "id": "cbfb3268.594f8",
+        "type": "change",
+        "z": "64802fcc.00f068",
+        "name": "Set_URL",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "url",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 756.875,
+        "y": 1243.125,
+        "wires": [
+            [
+                "f096f26d.63f0d"
+            ]
+        ]
+    },
+    {
+        "id": "81192d.081a26d",
+        "type": "mqtt in",
+        "z": "64802fcc.00f068",
+        "name": "Alert_Trigger",
+        "topic": "/alarm/alert",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 98.54165649414062,
+        "y": 1551.8751220703125,
+        "wires": [
+            [
+                "270d12cf.59bb96"
+            ]
+        ]
+    },
+    {
+        "id": "270d12cf.59bb96",
+        "type": "http request",
+        "z": "64802fcc.00f068",
+        "name": "GET_INFO",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/monitor/K7cYjTeHDq",
+        "tls": "",
+        "x": 345.41668701171875,
+        "y": 1519.5834350585938,
+        "wires": [
+            [
+                "5b385210.397f94",
+                "519c81a2.7e7a08"
+            ]
+        ]
+    },
+    {
+        "id": "5b385210.397f94",
+        "type": "function",
+        "z": "64802fcc.00f068",
+        "name": "GET_TRIGGER_URLS",
+        "func": "let raw = msg.payload\n\nvar urls = []\n\ntry{\n    raw.forEach(function(i) {\n    var tmp_url = 'http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/jpeg/'+i.ke+'/'+i.mid+'/s.jpg'\n    urls.push(tmp_url)\n    })\n}\ncatch(error){\n    var tmp_url = 'http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/jpeg/'+raw.ke+'/'+raw.mid+'/s.jpg'\n    urls.push(tmp_url)\n}\n\n\n\nvar result = []\n\nurls.forEach(function(i) {\n    var tmp = {payload: i}\n    result.push(tmp)\n})\nreturn [result]",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 594.25,
+        "y": 1478.25,
+        "wires": [
+            [
+                "ff0a3f5.5ae6dc",
+                "6b050975.1de9b8"
+            ]
+        ]
+    },
+    {
+        "id": "9a2e12dc.19f34",
+        "type": "inject",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 109.16665649414062,
+        "y": 1447.9166870117188,
+        "wires": [
+            [
+                "270d12cf.59bb96"
+            ]
+        ]
+    },
+    {
+        "id": "ff0a3f5.5ae6dc",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 942.4581298828125,
+        "y": 1639.2501831054688,
+        "wires": []
+    },
+    {
+        "id": "6b050975.1de9b8",
+        "type": "mqtt out",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "topic": "image",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 911.6666259765625,
+        "y": 1514.0000610351562,
+        "wires": []
+    },
+    {
+        "id": "53c510aa.f8c958",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1231.5,
+        "y": 673,
+        "wires": []
+    },
+    {
+        "id": "63df8e7a.9bf24",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "we are here",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1033.5,
+        "y": 704.5,
+        "wires": [
+            [
+                "53c510aa.f8c958"
+            ]
+        ]
+    },
+    {
+        "id": "52a86ff.c612e1",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "we are there",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1282,
+        "y": 357,
+        "wires": [
+            [
+                "d4041a8f.d3ffb8"
+            ]
+        ]
+    },
+    {
+        "id": "d4041a8f.d3ffb8",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1480,
+        "y": 325.5,
+        "wires": []
+    },
+    {
+        "id": "d3332b56.fe4ed",
+        "type": "ui_switch",
+        "z": "7ed01222.916aec",
+        "name": "Arm Controller",
+        "label": "Disarm/Arm Security",
+        "group": "70611d53.b9efcc",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 582.2916259765625,
+        "y": 764.9998779296875,
+        "wires": [
+            [
+                "1445241e.261bbc"
+            ]
+        ]
+    },
+    {
+        "id": "11e9ec12.5df19c",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "\nlet my_raw = global.get(\"alarm_armed\")\nif(my_raw == 1){\n\tmsg.payload = true\n}\nelse{\n\tmsg.payload = false\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 224.79168701171875,
+        "y": 819.375,
+        "wires": [
+            [
+                "5fbaa964.0d046",
+                "d3332b56.fe4ed"
+            ]
+        ]
+    },
+    {
+        "id": "1445241e.261bbc",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "let my_raw = msg.payload\n\n//let my_raw = global.get(\"alarm_armed\")\nif(my_raw === true){\n\t//msg.payload = true\n\tglobal.set(\"alarm_armed\",\"1\");\n\tmsg.payload = 1\n\t\n}\nelse{\n\t//msg.payload = false\n\tglobal.set(\"alarm_armed\",\"0\");\n\tmsg.payload = 0\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 841.6666870117188,
+        "y": 786.25,
+        "wires": [
+            [
+                "f847cce6.dd65c8"
+            ]
+        ]
+    },
+    {
+        "id": "58588f60.bace68",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "Status=Disarmed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Disarm",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580.4166870117188,
+        "y": 992.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "588e3a57.c67b9c",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "Status=ARMED",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Arm",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 584.1666870117188,
+        "y": 886.25,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5fbaa964.0d046",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 373.54168701171875,
+        "y": 911.875,
+        "wires": [
+            [
+                "588e3a57.c67b9c"
+            ],
+            [
+                "58588f60.bace68"
+            ]
+        ]
+    },
+    {
+        "id": "ea9508ef.81abb8",
+        "type": "mqtt out",
+        "z": "7ed01222.916aec",
+        "name": "Siren Status - Off",
+        "topic": "/alarm/siren/off",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 1294.1666870117188,
+        "y": 815,
+        "wires": []
+    },
+    {
+        "id": "f847cce6.dd65c8",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1063.5416870117188,
+        "y": 798.125,
+        "wires": [
+            [
+                "ea9508ef.81abb8"
+            ]
+        ]
+    },
+    {
+        "id": "984a762d.6f0f9",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "Boot_Up User Detail Set",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 254.5,
+        "y": 1329.5,
+        "wires": [
+            [
+                "84e02e00.0156a8"
+            ]
+        ]
+    },
+    {
+        "id": "84e02e00.0156a8",
+        "type": "template",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"john\": \"johnpass\",\n    \"wai\": \"waipass\",\n    \"than\": \"8690\",\n    \"key1\": \"14683242\",\n    \"key2\": \"14241083\",\n    \"key3\": \"11350141\"\n}",
+        "output": "str",
+        "x": 481.5,
+        "y": 1324.5,
+        "wires": [
+            [
+                "fde67139.0de0e8"
+            ]
+        ]
+    },
+    {
+        "id": "fde67139.0de0e8",
+        "type": "json",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 667.5,
+        "y": 1326.5,
+        "wires": [
+            [
+                "dba26670.b10dd8"
+            ]
+        ]
+    },
+    {
+        "id": "dba26670.b10dd8",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Set Into Global Variable(User_Detail)",
+        "func": "let raw = msg.payload\nglobal.set(\"user\",raw);\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 954.5,
+        "y": 1324.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d99089e.120ca8",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "Boot_Up_User_Stage_Set",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 266.5,
+        "y": 1442.5,
+        "wires": [
+            [
+                "1d21d57.a348dab"
+            ]
+        ]
+    },
+    {
+        "id": "1d21d57.a348dab",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "guess",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 564.5,
+        "y": 1437.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2064515a.100b6e",
+        "type": "delay",
+        "z": "7ed01222.916aec",
+        "name": "Random delay",
+        "pauseType": "random",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "2",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 636.5,
+        "y": 1610.5,
+        "wires": [
+            [
+                "f5d40a3c.a44af"
+            ]
+        ]
+    },
+    {
+        "id": "66d3b0f7.c3ba4",
+        "type": "delay",
+        "z": "7ed01222.916aec",
+        "name": "Random delay",
+        "pauseType": "random",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "2",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 522,
+        "y": 1706,
+        "wires": [
+            [
+                "f5d40a3c.a44af"
+            ]
+        ]
+    },
+    {
+        "id": "f5d40a3c.a44af",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Wait for all tasks to finish",
+        "func": "context.data = context.data || new Object();\n\nswitch (msg.topic) {\n    case \"pass_txt\":\n        context.data.txt = msg.payload;\n        msg = null;\n        break;\n    case \"login_btn\":\n        context.data.btn = msg.payload;\n        msg = null;\n        break;\n    default:\n        msg = null;\n    \tbreak;\n\n}\n\nif(context.data.txt != null && context.data.btn != null) {\n\tmsg2 = new Object();\n    msg2 = context.data;\n    context.data=null;\n\treturn msg2;\n} else {\n\nreturn msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 864.5,
+        "y": 1685.5,
+        "wires": [
+            [
+                "5b72b3cd.420c94",
+                "2ee653af.e763cc"
+            ]
+        ]
+    },
+    {
+        "id": "2ee653af.e763cc",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "User_Authenticate",
+        "func": "var user = global.get(\"user\");\nlet usr_pass = msg.txt\n\n//let passwords = Object.values(user)\n\nlet passwords = Object.keys(user).map(function(e) {\n  return user[e]\n})\n\nlet names = Object.keys(user)\n\nlet foundat = []\n//index of password\npasswords.forEach(function(value,key){  \n  if(value == usr_pass){\n    //console.log(key)\n    //foundat = key\n    foundat.push(key)\n  }\n})\n\nlet final = undefined\nif(foundat.length > 0){\n    final = names[foundat[0]]\n    \n}\nelse{\n    //msg.payload = \"not found\"\n    final = \"not found\"\n    //return msg\n}\nmsg.payload = final\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1111.8333740234375,
+        "y": 1555.8333435058594,
+        "wires": [
+            [
+                "a5bb50b9.430f18",
+                "d39993f3.2b32b8"
+            ]
+        ]
+    },
+    {
+        "id": "d39993f3.2b32b8",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "not found",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1150.5,
+        "y": 1661.5,
+        "wires": [
+            [
+                "efb1c8a4.125058"
+            ],
+            [
+                "9a364aa8.780138"
+            ]
+        ]
+    },
+    {
+        "id": "efb1c8a4.125058",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "guess",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1334.5,
+        "y": 1583.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a364aa8.780138",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "user",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1331.5,
+        "y": 1691.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "997e74f4.b0a6e8",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_logout",
+        "group": "70611d53.b9efcc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Logout",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 241.5,
+        "y": 1844,
+        "wires": [
+            [
+                "7ab08026.953bf"
+            ]
+        ]
+    },
+    {
+        "id": "7ab08026.953bf",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "guess",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 486.5,
+        "y": 1843.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54e3605a.f08f3",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "StateCheck",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "x": 206.5,
+        "y": 2029.5,
+        "wires": [
+            [
+                "2bede130.5f8fb6"
+            ]
+        ]
+    },
+    {
+        "id": "2bede130.5f8fb6",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "usr_stage",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "guess",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "user",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 433.5,
+        "y": 2034.5,
+        "wires": [
+            [
+                "1a869948.56330f"
+            ],
+            [
+                "b4276324.65d76"
+            ]
+        ]
+    },
+    {
+        "id": "1a869948.56330f",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "\nlet new_msg = {payload:{\n\t\t\tgroup:{\n\t\t\t\thide:[\"Alarm_MasterControl\"],\n\t\t\t\tshow:[\"Alarm_Authenticate\"]\n                               }\n                        }\n               }\n\n\nreturn new_msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 676.5,
+        "y": 2007.5,
+        "wires": [
+            [
+                "30936159.96c1e6"
+            ]
+        ]
+    },
+    {
+        "id": "b4276324.65d76",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "let new_msg = {payload:{\n\t\t\tgroup:{\n\t\t\t    hide:[\"Alarm_Authenticate\"],\n\t\t\t\tshow:[\"Alarm_MasterControl\"]\n\t\t\t\t\n                               }\n                        }\n               }\n\nreturn new_msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 669.5,
+        "y": 2078.5,
+        "wires": [
+            [
+                "9271e737.239a9"
+            ]
+        ]
+    },
+    {
+        "id": "30936159.96c1e6",
+        "type": "ui_ui_control",
+        "z": "7ed01222.916aec",
+        "name": "Guess_UI",
+        "x": 830.5,
+        "y": 2007,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9271e737.239a9",
+        "type": "ui_ui_control",
+        "z": "7ed01222.916aec",
+        "name": "User_UI",
+        "x": 837.5,
+        "y": 2079,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1b5f1fd6.f890c8",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 712.1429443359375,
+        "y": 2234.2855834960938,
+        "wires": []
+    },
+    {
+        "id": "e1cba4ee.0b123",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 189.28571428571428,
+        "y": 2226.428571428571,
+        "wires": [
+            [
+                "669ba01c.e3563"
+            ]
+        ]
+    },
+    {
+        "id": "669ba01c.e3563",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "var myfoo = global.get(\"usr_stage\");  // this should now be \"bar\"\nmsg.payload = myfoo\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 469.2857360839844,
+        "y": 2233.5714721679688,
+        "wires": [
+            [
+                "1b5f1fd6.f890c8"
+            ]
+        ]
+    },
+    {
+        "id": "b8cb1b06.51aec",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "set user",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 187.857177734375,
+        "y": 2352.1431884765625,
+        "wires": [
+            [
+                "75596a9d.dcf9c4"
+            ]
+        ]
+    },
+    {
+        "id": "677b4993.0c702",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "set guess",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 179.28573608398438,
+        "y": 2440.7142333984375,
+        "wires": [
+            [
+                "a21281d9.39f318"
+            ]
+        ]
+    },
+    {
+        "id": "75596a9d.dcf9c4",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "user",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 522.1428833007812,
+        "y": 2366.4286499023438,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a21281d9.39f318",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "guess",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 503.5714111328125,
+        "y": 2449.2858276367188,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2336918b.dac00e",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "show user",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 182.14285278320312,
+        "y": 2553.571502685547,
+        "wires": [
+            [
+                "929d04c8.1e73b8"
+            ]
+        ]
+    },
+    {
+        "id": "dc47a2ac.740358",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "show guess",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 196.4285888671875,
+        "y": 2653.5714721679688,
+        "wires": [
+            [
+                "5dd5e11b.5ee72"
+            ]
+        ]
+    },
+    {
+        "id": "929d04c8.1e73b8",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "let new_msg = {payload:{\n\t\t\tgroup:{\n\t\t\t    hide:[\"Alarm_Authenticate\"],\n\t\t\t\tshow:[\"Alarm_MasterControl\"]\n\t\t\t\t\n                               }\n                        }\n               }\n\nreturn new_msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 479.2857142857142,
+        "y": 2554.9999999999995,
+        "wires": [
+            [
+                "5e5077f4.9eb9d"
+            ]
+        ]
+    },
+    {
+        "id": "5dd5e11b.5ee72",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "let new_msg = {payload:{\n\t\t\tgroup:{\n\t\t\t\thide:[\"Alarm_MasterControl\"],\n\t\t\t\tshow:[\"Alarm_Authenticate\"]\n                               }\n                        }\n               }\n\n\nreturn new_msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 472.14288330078125,
+        "y": 2654.9998168945312,
+        "wires": [
+            [
+                "43ccb07a.00eef"
+            ]
+        ]
+    },
+    {
+        "id": "5e5077f4.9eb9d",
+        "type": "ui_ui_control",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "x": 747.8571428571428,
+        "y": 2564.285714285714,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43ccb07a.00eef",
+        "type": "ui_ui_control",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "x": 720.7142857142857,
+        "y": 2654.285714285714,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b72b3cd.420c94",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 989.1666666666665,
+        "y": 1466.6666666666665,
+        "wires": []
+    },
+    {
+        "id": "a5bb50b9.430f18",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1279.1666666666665,
+        "y": 1388.333333333333,
+        "wires": []
+    },
+    {
+        "id": "8eac3cf0.8da3a8",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Door Sensor 05",
+        "topic": "/alarm/sensor/door/05",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 141.25,
+        "y": 677.5,
+        "wires": [
+            [
+                "1058b3e0.084d1c"
+            ]
+        ]
+    },
+    {
+        "id": "9cf2a28.b70b4e",
+        "type": "mqtt in",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "topic": "input",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 289.1666564941406,
+        "y": 1110.833251953125,
+        "wires": [
+            [
+                "77d14032.b74558"
+            ]
+        ]
+    },
+    {
+        "id": "77d14032.b74558",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "let raw = msg.payload\nif(raw == 1){\n    msg.payload = true\n}\nelse{\n    msg.payload = false\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 474.1666564941406,
+        "y": 1145.8333129882812,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2f2d2ca.3491e",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "let tmp = msg.payload \nlet result = \"output of button is \" + tmp;\nmsg.payload = result\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 777.5,
+        "y": 1139.1666259765625,
+        "wires": [
+            [
+                "d65c9203.ff38"
+            ]
+        ]
+    },
+    {
+        "id": "d65c9203.ff38",
+        "type": "mqtt out",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "topic": "output",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 980.833251953125,
+        "y": 1133.3333129882812,
+        "wires": []
+    },
+    {
+        "id": "2b1ed116.ace3a6",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_1",
+        "group": "481160e2.a1ed1",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "1",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 2803.333251953125,
+        "wires": [
+            [
+                "29a71b5c.dbc2bc"
+            ]
+        ]
+    },
+    {
+        "id": "7f41b9e7.e774e8",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_2",
+        "group": "481160e2.a1ed1",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "2",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 2843.333251953125,
+        "wires": [
+            [
+                "d7abaf39.6f8738"
+            ]
+        ]
+    },
+    {
+        "id": "c767ac9a.6efbb",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_3",
+        "group": "481160e2.a1ed1",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "3",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 2883.333251953125,
+        "wires": [
+            [
+                "674fddaf.62f504"
+            ]
+        ]
+    },
+    {
+        "id": "53871eaf.0a6fb8",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_4",
+        "group": "481160e2.a1ed1",
+        "order": 5,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "4",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 2923.333251953125,
+        "wires": [
+            [
+                "424c75a2.c07e84"
+            ]
+        ]
+    },
+    {
+        "id": "da526c73.e2273",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_5",
+        "group": "481160e2.a1ed1",
+        "order": 6,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "5",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 2963.333251953125,
+        "wires": [
+            [
+                "12d6161f.3107b2"
+            ]
+        ]
+    },
+    {
+        "id": "dd406bab.ab1fa",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_6",
+        "group": "481160e2.a1ed1",
+        "order": 7,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "6",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 3003.333251953125,
+        "wires": [
+            [
+                "e0b7cb8a.abb44"
+            ]
+        ]
+    },
+    {
+        "id": "414b7b28.d0f0bc",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_7",
+        "group": "481160e2.a1ed1",
+        "order": 8,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "7",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 3083.333251953125,
+        "wires": [
+            [
+                "ff55fdb4.afe19"
+            ]
+        ]
+    },
+    {
+        "id": "c48ccb8.ae47738",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_8",
+        "group": "481160e2.a1ed1",
+        "order": 9,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "8",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 3143.333251953125,
+        "wires": [
+            [
+                "5b1d902d.e20818"
+            ]
+        ]
+    },
+    {
+        "id": "5e706c0e.c8195c",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_9",
+        "group": "481160e2.a1ed1",
+        "order": 10,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "9",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 3203.333251953125,
+        "wires": [
+            [
+                "907bf2d9.efab68"
+            ]
+        ]
+    },
+    {
+        "id": "f5c29c6d.77eb5",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_0",
+        "group": "481160e2.a1ed1",
+        "order": 12,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "0",
+        "color": "green ",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 3263.333251953125,
+        "wires": [
+            [
+                "43a3b3f1.7d800c"
+            ]
+        ]
+    },
+    {
+        "id": "a07d84cb.076bf8",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_#",
+        "group": "481160e2.a1ed1",
+        "order": 13,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "#",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 188.33331298828125,
+        "y": 3323.333251953125,
+        "wires": [
+            [
+                "e12ddca8.c6ec88"
+            ]
+        ]
+    },
+    {
+        "id": "72151aab.7afa9c",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "btn_*",
+        "group": "481160e2.a1ed1",
+        "order": 11,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "*",
+        "color": "green",
+        "bgcolor": "black",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 184.9998779296875,
+        "y": 3423.333526611328,
+        "wires": [
+            [
+                "c9beb925.78f2f8",
+                "7001d36a.2791e4"
+            ]
+        ]
+    },
+    {
+        "id": "29a71b5c.dbc2bc",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn1_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"1\");\n}\nelse{\n    my_key = String(my_key) + \"1\"\n    global.set(\"press_key\", my_key)\n}\n\nlet noc = global.get(\"press_key\").length\n//var str = \"\"\n//for (var i = 0; i < number_of_characters; i++) {\n//   str += \"*\";\n//}\n//msg.payload = str + number_of_characters\nmsg.payload = noc\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 2803.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "d7abaf39.6f8738",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn2_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"2\");\n}\nelse{\n    my_key = String(my_key) + \"2\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 2843.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "674fddaf.62f504",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn3_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"3\");\n}\nelse{\n    my_key = String(my_key) + \"3\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 414.33331298828125,
+        "y": 2883.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "424c75a2.c07e84",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn4_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"4\");\n}\nelse{\n    my_key = String(my_key) + \"4\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 2923.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "12d6161f.3107b2",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn5_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"5\");\n}\nelse{\n    my_key = String(my_key) + \"5\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 2963.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "e0b7cb8a.abb44",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn6_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"6\");\n}\nelse{\n    my_key = String(my_key) + \"6\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 419,
+        "y": 3018.666748046875,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "ff55fdb4.afe19",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn7_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"7\");\n}\nelse{\n    my_key = String(my_key) + \"7\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 412.33331298828125,
+        "y": 3081.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "5b1d902d.e20818",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn8_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"8\");\n}\nelse{\n    my_key = String(my_key) + \"8\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 3143.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "907bf2d9.efab68",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn9_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"9\");\n}\nelse{\n    my_key = String(my_key) + \"9\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 3203.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "43a3b3f1.7d800c",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn0_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"0\");\n}\nelse{\n    my_key = String(my_key) + \"0\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 3263.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "bf2c7824.86c97",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn#_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"#\");\n}\nelse{\n    my_key = String(my_key) + \"#\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 418.33331298828125,
+        "y": 3323.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "80680fdc.c06348",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "btn*_handler",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    global.set(\"press_key\",\"*\");\n}\nelse{\n    my_key = String(my_key) + \"*\"\n    global.set(\"press_key\", my_key)\n}\nlet noc = global.get(\"press_key\").length\nvar str = \"\"\nfor (var i = 0; i < noc; i++) {\n   str += \"*\";\n}\nmsg.payload = str \n//msg.payload = noc\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 408.33331298828125,
+        "y": 3383.333251953125,
+        "wires": [
+            [
+                "a23ef839.478f2",
+                "97e85f2f.b59a58"
+            ]
+        ]
+    },
+    {
+        "id": "af1a23cf.19d5e",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "group": "481160e2.a1ed1",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Login",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "login_btn",
+        "x": 243.33331298828125,
+        "y": 3543.333740234375,
+        "wires": [
+            [
+                "e12ddca8.c6ec88"
+            ]
+        ]
+    },
+    {
+        "id": "e12ddca8.c6ec88",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "var my_key = global.get(\"press_key\");\nif(my_key === undefined){\n    msg.payload = \"no\"\n}\nelse{\n    msg.payload = my_key\n    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 455.8333740234375,
+        "y": 3622.4998779296875,
+        "wires": [
+            [
+                "e290dc76.4a0fc"
+            ]
+        ]
+    },
+    {
+        "id": "e290dc76.4a0fc",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "no",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 637.4999389648438,
+        "y": 3560.833740234375,
+        "wires": [
+            [
+                "18f75542.0ec5a3"
+            ]
+        ]
+    },
+    {
+        "id": "18f75542.0ec5a3",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "User_Authenticate",
+        "func": "var user = global.get(\"user\");\nvar usr_pass = msg.payload\n\n//let passwords = Object.values(user)\nlet passwords = Object.keys(user).map(function(e) {\n  return user[e]\n})\nlet names = Object.keys(user)\n\nlet foundat = []\n//index of password\npasswords.forEach(function(value,key){  \n  if(value == usr_pass){\n    //console.log(key)\n    //foundat = key\n    foundat.push(key)\n  }\n})\n\nlet final = undefined\nif(foundat.length > 0){\n    final = names[foundat[0]]\n    \n}\nelse{\n    //msg.payload = \"not found\"\n    final = \"not found\"\n    //return msg\n}\nmsg.payload = final\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 705.833251953125,
+        "y": 3664.1666259765625,
+        "wires": [
+            [
+                "39fa6a5b.6aa61e",
+                "847e548a.a73ca8"
+            ]
+        ]
+    },
+    {
+        "id": "39fa6a5b.6aa61e",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "not found",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 857.4999389648438,
+        "y": 3602.5,
+        "wires": [
+            [
+                "8e365530.2a8f28"
+            ],
+            [
+                "e635c8d6.8448b8",
+                "ae6c4d6b.0beab8"
+            ]
+        ]
+    },
+    {
+        "id": "8e365530.2a8f28",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "guess",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1089.1666259765625,
+        "y": 3524.1666259765625,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e635c8d6.8448b8",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "usr_stage",
+                "pt": "global",
+                "to": "user",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1109.1666259765625,
+        "y": 3617.4998779296875,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ae6c4d6b.0beab8",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "press_key",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1109.1666259765625,
+        "y": 3709.1666259765625,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54d324a.23163dc",
+        "type": "ui_button",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "group": "481160e2.a1ed1",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 120.83333333333331,
+        "y": 3739.9999999999995,
+        "wires": [
+            [
+                "c9beb925.78f2f8",
+                "7001d36a.2791e4"
+            ]
+        ]
+    },
+    {
+        "id": "c9beb925.78f2f8",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "press_key",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 457.49993896484375,
+        "y": 3774.16650390625,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a6899f36.3893f8",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 157.49999999999997,
+        "y": 3885.8333333333326,
+        "wires": [
+            [
+                "bff775f2.8b4f1"
+            ]
+        ]
+    },
+    {
+        "id": "bff775f2.8b4f1",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "var my_key = global.get(\"press_key\");\nmsg.payload = my_key\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 407.49999999999994,
+        "y": 3874.166666666666,
+        "wires": [
+            [
+                "814f23cc.b3776"
+            ]
+        ]
+    },
+    {
+        "id": "814f23cc.b3776",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 685.8333333333333,
+        "y": 3873.3333333333326,
+        "wires": []
+    },
+    {
+        "id": "7001d36a.2791e4",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Clear_The_Type_In_Password",
+        "func": "msg.payload = \"\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 900.5000610351562,
+        "y": 3318.833526611328,
+        "wires": [
+            [
+                "a23ef839.478f2"
+            ]
+        ]
+    },
+    {
+        "id": "a23ef839.478f2",
+        "type": "ui_text",
+        "z": "7ed01222.916aec",
+        "group": "481160e2.a1ed1",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "name": "asterisk_ouput",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 1028.333251953125,
+        "y": 3039.7500762939453,
+        "wires": []
+    },
+    {
+        "id": "97e85f2f.b59a58",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 991.75,
+        "y": 2857.7499389648438,
+        "wires": []
+    },
+    {
+        "id": "24807b46.9ce424",
+        "type": "inject",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 2133.75,
+        "wires": [
+            [
+                "12f547c9.6a9c48"
+            ]
+        ]
+    },
+    {
+        "id": "d50e94e3.c25c4",
+        "type": "mqtt in",
+        "z": "64802fcc.00f068",
+        "name": "Alert_Trigger",
+        "topic": "/alarm/alert",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 129.375,
+        "y": 2237.7084350585938,
+        "wires": [
+            [
+                "12f547c9.6a9c48"
+            ]
+        ]
+    },
+    {
+        "id": "12f547c9.6a9c48",
+        "type": "http request",
+        "z": "64802fcc.00f068",
+        "name": "GET_INFO",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://shinobi:8080/gOXEDga1xD6YXcoBTf2ZuOrPRqv3Ey/monitor/K7cYjTeHDq",
+        "tls": "",
+        "x": 376.2500305175781,
+        "y": 2205.416748046875,
+        "wires": [
+            [
+                "969fa72a.870d8"
+            ]
+        ]
+    },
+    {
+        "id": "969fa72a.870d8",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 661.875,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "a6c82c0b.0eda48",
+        "type": "serial in",
+        "z": "7ed01222.916aec",
+        "name": "Arduino",
+        "serial": "d6946509.74063",
+        "x": 66.66665649414062,
+        "y": 3464.167449951172,
+        "wires": [
+            [
+                "5994d06a.051ce"
+            ]
+        ]
+    },
+    {
+        "id": "defc24e5.4d0458",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 719.1666259765625,
+        "y": 3438.3331909179688,
+        "wires": []
+    },
+    {
+        "id": "5994d06a.051ce",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "func": "var my_key = global.get(\"press_key\");\nvar ard_key = msg.payload.trim()\nif (ard_key == \"13\"){\n    msg.payload = \"1\"\n}\nelse if(ard_key == \"27\"){\n    msg.payload = \"2\"\n}\nelse{\n    if(my_key === undefined){\n\t    global.set(\"press_key\", ard_key)\n    }\n    else{\n\t    my_key = String(my_key) + String(ard_key)\n\t    global.set(\"press_key\", my_key)\n    }\n    msg.payload = \"0\"\n}\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 117.49990844726562,
+        "y": 3602.4998168945312,
+        "wires": [
+            [
+                "e3924b56.3b4178"
+            ]
+        ]
+    },
+    {
+        "id": "e3924b56.3b4178",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 272.49993896484375,
+        "y": 3644.1666870117188,
+        "wires": [
+            [
+                "e12ddca8.c6ec88"
+            ],
+            [
+                "c9beb925.78f2f8",
+                "7001d36a.2791e4"
+            ]
+        ]
+    },
+    {
+        "id": "847e548a.a73ca8",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 942.5,
+        "y": 3781.6664428710938,
+        "wires": []
+    },
+    {
+        "id": "9debc6e6.fc9ce8",
+        "type": "mqtt in",
+        "z": "7ed01222.916aec",
+        "name": "Entry_Code_From_Doors",
+        "topic": "Password",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 138.125,
+        "y": 4178.125,
+        "wires": [
+            [
+                "253fd63e.fbf56a"
+            ]
+        ]
+    },
+    {
+        "id": "253fd63e.fbf56a",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Validation Check",
+        "func": "var user = global.get(\"user\");\nlet raw_data = msg.payload;\nlet new_data = raw_data.split(\":\")\nlet door_id = new_data[0]\nlet usr_pass = new_data[1]\n\nglobal.set(\"current_key\", usr_pass)\n\nlet passwords = Object.keys(user).map(function(e) {\n  return user[e]\n})\nlet names = Object.keys(user)\n\nlet foundat = []\n\npasswords.forEach(function(value,key){  \n  if(value == usr_pass){\n    foundat.push(key)\n  }\n})\n\nlet final = undefined\nif(foundat.length > 0){\n    //final = names[foundat[0]]\n    //final = String(door_id) + \":\" + String(\"1\")\n    final = door_id\n    \n    \n}\nelse{\n\n    final = \"not found\" + door_id   \n}\n//msg.payload = final\n//return msg\n\nlet valid_check_topic = {}\nvalid_check_topic.payload = final\nreturn valid_check_topic\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 314.875,
+        "y": 4310.625,
+        "wires": [
+            [
+                "6024b1bb.0d15"
+            ]
+        ]
+    },
+    {
+        "id": "6024b1bb.0d15",
+        "type": "switch",
+        "z": "7ed01222.916aec",
+        "name": "intruder or user",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "not found",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 488.8035888671875,
+        "y": 4121.9462890625,
+        "wires": [
+            [
+                "892ffa9b.768148"
+            ],
+            [
+                "1c42d9a6.a3918e",
+                "52134680.49a7f",
+                "49ff1bdf.7de004",
+                "b423b1e3.8c42e"
+            ]
+        ]
+    },
+    {
+        "id": "1c42d9a6.a3918e",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Message to open the door",
+        "func": "let warning = global.get(\"alarm_warning\")\nlet alarm_alert = global.get(\"alarm_alert\")\nlet armed = global.get(\"alarm_armed\")\n\n    if(warning == 0 && alarm_alert == 0){\n  //  msg.payload = \"here to open\"\n    let id = msg.payload \n    let my_global_id = String(id) + \"_Attempt\"\n    global.set(my_global_id, 0)\n    msg.payload = \"0\"\n    msg.topic = id\n    return msg \n      \n    }\n\n\n\n\n\n//let id = msg.payload \n//let my_global_id = String(id) + \"_Attempt\"\n//global.set(my_global_id, 0)\n//msg.payload = \"0\"\n//msg.topic = id\n//return msg \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 952.8749389648438,
+        "y": 4247.042236328125,
+        "wires": [
+            [
+                "72cbe4c4.4c8664",
+                "ba8ad5af.43f46"
+            ]
+        ]
+    },
+    {
+        "id": "72cbe4c4.4c8664",
+        "type": "mqtt out",
+        "z": "7ed01222.916aec",
+        "name": "Open",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 1467.3751220703125,
+        "y": 4243.5,
+        "wires": []
+    },
+    {
+        "id": "52134680.49a7f",
+        "type": "delay",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 891.5416870117188,
+        "y": 4340.625,
+        "wires": [
+            [
+                "1da06c56.add544"
+            ]
+        ]
+    },
+    {
+        "id": "1da06c56.add544",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Message to close the door",
+        "func": "let warning = global.get(\"alarm_warning\")\nlet alarm_alert = global.get(\"alarm_alert\")\nlet armed = global.get(\"alarm_armed\")\n\n\n    if(warning == 0 && alarm_alert == 0){\n      //  msg.payload = \"here to open\"\n        let id = msg.payload \n        let my_global_id = String(id) + \"_Attempt\"\n        global.set(my_global_id, 0)\n        msg.payload = \"1\"\n        msg.topic = id\n        return msg \n      \n    }\n\n/*\n\nlet id = msg.payload \nlet my_global_id = String(id) + \"_Attempt\"\nglobal.set(my_global_id, 0)\nmsg.payload = \"1\"\nmsg.topic = id\nreturn msg \n\n*/",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1224.625,
+        "y": 4343.624755859375,
+        "wires": [
+            [
+                "9b74c1bf.af1e88"
+            ]
+        ]
+    },
+    {
+        "id": "9b74c1bf.af1e88",
+        "type": "mqtt out",
+        "z": "7ed01222.916aec",
+        "name": "Close",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 1466.2083740234375,
+        "y": 4310.166809082031,
+        "wires": []
+    },
+    {
+        "id": "892ffa9b.768148",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Set Accept Count",
+        "func": "let door_id = msg.payload.replace(\"not found\", \"\");\nlet my_global_id = String(door_id) + \"_Attempt\"\nlet door_attempt = global.get(my_global_id)\n\n\nif(typeof door_attempt == \"undefined\"){\n    global.set(my_global_id, 1)\n}\nelse{\n    let tmp = global.get(my_global_id) + 1\n    global.set(my_global_id, tmp)\n    \n}\n\nlet tmp1 = global.get(my_global_id) + 1\nif(tmp1 > 3){\n    global.set(my_global_id, 0)\n   \n    let topic_create = \"/alarm/keypad/door/\"+door_id\n    new_msg = {}\n    new_msg.topic = topic_create\n    new_msg.payload = 1\n \n    return new_msg\n}\nelse{\n    let topic_create = \"/dummy/\"+door_id\n    new_msg = {}\n    new_msg.topic = topic_create\n    new_msg.payload = 1\n \n    return new_msg\n}\n\n\n\n\n\n/*\n\nglobal.get(my_global_id, function(err, myCount) { \n    \n    if(err) { global.set(my_global_id, 1)}\n    else{\n        let tmp = myCount\n        global.set(my_global_id, tmp + 1)\n        \n    }\n});\n    \nlet attempt_check = global.get(my_global_id)\nif(attempt_check > 2){\n    global.set(my_global_id, 0)\n    let topic_create = \"/alarm/keypad/door/\"+door_id\n    msg.payload = \"1\"\n    msg.topic = topic_create\n    //msg.payload = \"more than 3\"\n    return msg;\n}\n*/",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 749.285888671875,
+        "y": 4024.9050903320312,
+        "wires": [
+            [
+                "ac378077.c4753",
+                "32a24670.48cdfa"
+            ]
+        ]
+    },
+    {
+        "id": "bae1ed7f.5669",
+        "type": "mqtt in",
+        "z": "89fef9ac.2aa08",
+        "name": "Door Keypad 01",
+        "topic": "/alarm/keypad/door/#",
+        "qos": "2",
+        "broker": "44b91e97.1e0a1",
+        "x": 134.28573608398438,
+        "y": 788.5714111328125,
+        "wires": [
+            [
+                "1058b3e0.084d1c",
+                "70eb496b.d04448"
+            ]
+        ]
+    },
+    {
+        "id": "ac378077.c4753",
+        "type": "mqtt out",
+        "z": "7ed01222.916aec",
+        "name": "Keypad Trigger",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 1150.143310546875,
+        "y": 4001.7625427246094,
+        "wires": []
+    },
+    {
+        "id": "6cd51779.c50538",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 454.5238037109375,
+        "y": 4510.714111328125,
+        "wires": [
+            [
+                "f1b61c7a.23dec"
+            ]
+        ]
+    },
+    {
+        "id": "a7e10edf.28f648",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1011.33349609375,
+        "y": 4457.66650390625,
+        "wires": []
+    },
+    {
+        "id": "49ff1bdf.7de004",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "below",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 628.3333129882812,
+        "y": 4443.6668701171875,
+        "wires": [
+            [
+                "a7e10edf.28f648"
+            ]
+        ]
+    },
+    {
+        "id": "ccf0d9d1.d0ecb8",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 438,
+        "y": 4642,
+        "wires": [
+            [
+                "6723c184.bb689"
+            ]
+        ]
+    },
+    {
+        "id": "6723c184.bb689",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "add ",
+        "func": "let global_id = \"D1_Attempt\";\nlet door_attempt = global.get(global_id);\nglobal.set(global_id, door_attempt + 1);\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 659.4285365513392,
+        "y": 4646.285888671875,
+        "wires": [
+            [
+                "76c9415b.39b5a"
+            ]
+        ]
+    },
+    {
+        "id": "76c9415b.39b5a",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 925.142822265625,
+        "y": 4651.285888671875,
+        "wires": []
+    },
+    {
+        "id": "f1b61c7a.23dec",
+        "type": "change",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "D1_Attempt",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 827.4999389648438,
+        "y": 4514.1666259765625,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d68e78d9.966328",
+        "type": "inject",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 421.66668701171875,
+        "y": 4765.5556640625,
+        "wires": [
+            [
+                "2b5c4e7e.7c9462"
+            ]
+        ]
+    },
+    {
+        "id": "2b5c4e7e.7c9462",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "get",
+        "func": "let global_id = \"D1_Attempt\";\nlet door_attempt = global.get(global_id);\nmsg.payload = door_attempt\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 643.095223563058,
+        "y": 4769.841552734375,
+        "wires": [
+            [
+                "7049090c.a3e95"
+            ]
+        ]
+    },
+    {
+        "id": "7049090c.a3e95",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 908.8095092773438,
+        "y": 4774.841552734375,
+        "wires": []
+    },
+    {
+        "id": "d63f438c.7e63f",
+        "type": "debug",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 255,
+        "y": 929.6428833007812,
+        "wires": []
+    },
+    {
+        "id": "70eb496b.d04448",
+        "type": "change",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ehre",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 122.14285714285712,
+        "y": 1003.2142857142857,
+        "wires": [
+            [
+                "d63f438c.7e63f"
+            ]
+        ]
+    },
+    {
+        "id": "519c81a2.7e7a08",
+        "type": "debug",
+        "z": "64802fcc.00f068",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 535.8333740234375,
+        "y": 1675.0000610351562,
+        "wires": []
+    },
+    {
+        "id": "b423b1e3.8c42e",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "Disarm ",
+        "func": "let warning = global.get(\"alarm_warning\")\nlet alarm_alert = global.get(\"alarm_alert\")\nlet armed = global.get(\"alarm_armed\")\n\nif(armed == 1){\n    if(warning == 1 || alarm_alert ==1){\n        global.set(\"alarm_warning\", 0);\n        global.set(\"alarm_alert\", 0);\n        global.set(\"alarm_armed\", 0);\n    \n        new_msg = {}\n        new_msg.topic = '/alarm/siren/off'\n        new_msg.payload = 1\n        return new_msg\n    }\n}\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 835.833251953125,
+        "y": 4144.167327880859,
+        "wires": [
+            [
+                "7058a8e9.f47098",
+                "d8322d13.71067"
+            ]
+        ]
+    },
+    {
+        "id": "7058a8e9.f47098",
+        "type": "mqtt out",
+        "z": "7ed01222.916aec",
+        "name": "siren_off",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 1205.8333740234375,
+        "y": 4138.332977294922,
+        "wires": []
+    },
+    {
+        "id": "c2b370fe.d5c458",
+        "type": "mqtt out",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "topic": "status",
+        "qos": "",
+        "retain": "",
+        "broker": "44b91e97.1e0a1",
+        "x": 1032.5,
+        "y": 765.0000610351562,
+        "wires": []
+    },
+    {
+        "id": "d4c15f39.62adc",
+        "type": "function",
+        "z": "89fef9ac.2aa08",
+        "name": "",
+        "func": "new_msg = {}\nnew_msg.topic = 'status'\nnew_msg.payload = msg.payload\nreturn new_msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 850.833251953125,
+        "y": 797.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd32eb5f.c13138",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1164.1666259765625,
+        "y": 3903.333740234375,
+        "wires": []
+    },
+    {
+        "id": "32a24670.48cdfa",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "logging_invalid",
+        "func": "let current_key = global.get(\"current_key\")\nlet dt = new Date();\nlet utcDate = dt.toUTCString();\n//time, key, status, user_id \nlet message = utcDate + current_key + \"invalid\"\nglobal.set(\"current_key\", 0);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 972.5,
+        "y": 3929.1665954589844,
+        "wires": [
+            [
+                "cd32eb5f.c13138"
+            ]
+        ]
+    },
+    {
+        "id": "d8322d13.71067",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "logging_diarm",
+        "func": "let current_key = global.get(\"current_key\")\nlet dt = new Date();\nlet utcDate = dt.toUTCString();\n//time, key, status, user_id \nlet message = utcDate + current_key + \"disarm_key\"\nglobal.set(\"current_key\", 0);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1013.333251953125,
+        "y": 4086.66650390625,
+        "wires": [
+            [
+                "2fba126.b3ccc6e"
+            ]
+        ]
+    },
+    {
+        "id": "2fba126.b3ccc6e",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1221.6666259765625,
+        "y": 4066.66650390625,
+        "wires": []
+    },
+    {
+        "id": "ba8ad5af.43f46",
+        "type": "function",
+        "z": "7ed01222.916aec",
+        "name": "logging_open_door",
+        "func": "let current_key = global.get(\"current_key\")\nlet dt = new Date();\nlet utcDate = dt.toUTCString();\n//time, key, status, user_id \nlet message = utcDate + current_key + \"open_door\"\nglobal.set(\"current_key\", 0);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1248.333251953125,
+        "y": 4194.999664306641,
+        "wires": [
+            [
+                "30973065.a09c38"
+            ]
+        ]
+    },
+    {
+        "id": "30973065.a09c38",
+        "type": "debug",
+        "z": "7ed01222.916aec",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1468.3333740234375,
+        "y": 4171.666656494141,
+        "wires": []
+    }
+]
