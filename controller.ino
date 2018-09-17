@@ -14,7 +14,7 @@ RCSwitch mySwitch = RCSwitch();
 RCSwitch mySwitch1 = RCSwitch();int state = 0;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   mySwitch.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
   pinMode(13, OUTPUT);      
   mySwitch1.enableTransmit(10);
@@ -22,15 +22,15 @@ void setup() {
 
 void siren() {
   if(state==1){
-  Serial.println("outside");
+  //Serial.println("outside");
   mySwitch1.send("000100010001001100000010");
   delayMicroseconds(364);
   mySwitch1.send("000100010001001100000010");
   delayMicroseconds(364);  
   }
-  else{
+  /*else{
     state = 0;   
-  }
+  }*/
   
 }
 
@@ -38,7 +38,7 @@ void loop() {
     
     //Serial.println(Serial.parseInt());    
      if (mySwitch.available()) {
-      Serial.println("inside");
+      //Serial.println("inside");
     output(mySwitch.getReceivedValue(), mySwitch.getReceivedBitlength(), mySwitch.getReceivedDelay(), mySwitch.getReceivedRawdata(),mySwitch.getReceivedProtocol());
     mySwitch.resetAvailable();
   }
@@ -51,7 +51,7 @@ void loop() {
  }
 
      siren();  
- 
+     //Serial.println(state); 
  
 
    
